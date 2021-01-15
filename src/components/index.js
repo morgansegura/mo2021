@@ -1,4 +1,6 @@
-export { default as Image } from "./image"
-export { default as Header } from "./header"
-export { default as Layout } from "./layout"
-export { default as SEO } from "./seo"
+export { default as Image } from './image'
+export { default as Header } from './header'
+export { default as Layout } from './layout'
+export { default as MainNavigation } from './navigation'
+export { default as NavLink } from './nav-link'
+export { default as SEO } from './seo'
