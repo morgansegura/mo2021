@@ -1,0 +1,6 @@
+export { default as ArtificialIntelligence } from './artificial-intelligence'
+export { default as AugmentedReality } from './augmented-reality'
+export { default as BlockChain } from './block-chain'
+export { default as ComplexAlgorithm } from './complex-algorithm'
+export { default as MachineLearning } from './machine-learning'
+export { default as VirtualReality } from './virtual-reality'

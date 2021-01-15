@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -23,27 +23,21 @@ const Layout = ({ children }) => {
     `)
 
     return (
-        <Fragment>
-            <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-            <div
-                style={{
-                    margin: `0 auto`,
-                    maxWidth: 960,
-                    padding: `0 1.0875rem 1.45rem`,
-                }}
-            >
-                <main>{children}</main>
-                <footer
-                    style={{
-                        marginTop: `2rem`,
-                    }}
-                >
-                    © {new Date().getFullYear()}, Built with
-                    {` `}
-                    <a href='https://www.gatsbyjs.com'>Gatsby</a>
-                </footer>
-            </div>
-        </Fragment>
+        <div className='h-screen flex flex-col overflow-auto'>
+            <Header
+                className='w-full max-w-6xl mx-auto flex items-center px-8 py-12 grid grid-cols-5'
+                siteTitle={data.site.siteMetadata?.title || `Title`}
+            />
+            <main className='h-full w-full max-w-6xl flex-1 py-12 px-8 mx-auto'>
+                {children}
+            </main>
+
+            <footer className=''>
+                © {new Date().getFullYear()}, Built with
+                {` `}
+                <a href='https://www.gatsbyjs.com'>Gatsby</a>
+            </footer>
+        </div>
     )
 }
 

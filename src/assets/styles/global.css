@@ -600,3 +600,69 @@ pre tt:after {
         font-size: 100%;
     }
 }
+
+.bg-fill-block-yellow {
+    position: relative;
+    z-index: 1;
+}
+.bg-fill-block-yellow:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translateX(25%);
+    background-color: rgba(253, 230, 138, 0.75);
+}
+/* SVGS */
+
+.svg-artificial-intelligence .st1,
+.svg-augmented-reality .st1,
+.svg-machine-learning .st1,
+.svg-block-chain .st1 {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.svg-artificial-intelligence .st2,
+.svg-augmented-reality .st2,
+.svg-machine-learning .st2,
+.svg-block-chain .st2 {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-complex-algorithm .cls-2,
+.svg-complex-algorithm .cls-3 {
+    fill: none;
+}
+.svg-complex-algorithm .cls-2,
+.svg-complex-algorithm .cls-4 {
+    stroke: #000;
+}
+.svg-complex-algorithm .cls-2,
+.svg-complex-algorithm .cls-3,
+.svg-complex-algorithm .cls-4 {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3px;
+}
+.svg-complex-algorithm .cls-3 {
+    stroke: #f5f5f5;
+}
+
+.svg-virtual-reality .cls-2 {
+    fill: none;
+}
+.svg-virtual-reality .cls-2,
+.svg-virtual-reality .cls-3 {
+    stroke: #000;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3px;
+}
