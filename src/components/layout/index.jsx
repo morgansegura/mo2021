@@ -5,13 +5,19 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from 'react'
+import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { Header } from '..'
+import { Drawer, Header } from '..'
+
+import '../../assets/scss/global.scss'
 
 const Layout = ({ children }) => {
+    const [toggleDrawer, setToggleDrawer] = useState(false)
+    const handleToggleDrawer = () => {
+        setToggleDrawer(!toggleDrawer)
+    }
     const data = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
@@ -23,21 +29,34 @@ const Layout = ({ children }) => {
     `)
 
     return (
-        <div className='h-screen flex flex-col overflow-auto'>
-            <Header
-                className='w-full max-w-6xl mx-auto flex items-center px-8 py-12 grid grid-cols-5'
-                siteTitle={data.site.siteMetadata?.title || `Title`}
-            />
-            <main className='h-full w-full max-w-6xl flex-1 py-12 px-8 mx-auto'>
-                {children}
-            </main>
+        <Fragment>
+            <div
+                className={`h-screen flex flex-col transition ease-out duration-300 ${
+                    toggleDrawer ? 'opacity-5 overflow-hidden' : ''
+                }`}
+            >
+                <Header
+                    handleToggleDrawer={handleToggleDrawer}
+                    className='w-full border-b border-gray-200'
+                    siteTitle={data.site.siteMetadata?.title || `Title`}
+                />
+                <main className='relative w-full max-w-6xl flex-1 p-8 mx-auto'>
+                    {children}
+                </main>
 
-            <footer className=''>
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <a href='https://www.gatsbyjs.com'>Gatsby</a>
-            </footer>
-        </div>
+                <footer className='p-8'>
+                    © {new Date().getFullYear()}, Built with
+                    {` `}
+                    <a href='https://www.gatsbyjs.com'>Gatsby</a>
+                </footer>
+            </div>
+            <Drawer
+                setToggleDrawer={setToggleDrawer}
+                toggleDrawer={toggleDrawer}
+            >
+                Hello
+            </Drawer>
+        </Fragment>
     )
 }
 

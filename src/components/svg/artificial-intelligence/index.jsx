@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ArtificialInteligence = ({ className, color, style }) => {
+const ArtificialInteligence = ({ className, color, style, viewBox }) => {
     return (
         <div
-            className={`svg-artificial-intelligence ${className}`}
+            className={`svg-artificial-intelligence scaling-svg-container ${className}`}
             style={style}
         >
             <svg
@@ -12,11 +12,16 @@ const ArtificialInteligence = ({ className, color, style }) => {
                 xmlns='http://www.w3.org/2000/svg'
                 x='0px'
                 y='0px'
-                viewBox='0 0 1280 1024'
-                style={{ enableBackground: 'new 0 0 1280 1024' }}
+                viewBox={`${viewBox ? viewBox : '0 0 1280 1024'}`}
+                className='scaling-svg'
+                style={{
+                    enableBackground: viewBox
+                        ? 'new ' + viewBox
+                        : 'new 0 0 1280 1024',
+                }}
             >
                 <circle
-                    className={`st0 fill-current text-${color}`}
+                    className={`st0 fill-current ${color}`}
                     cx='633.8'
                     cy='468.9'
                     r='329'
