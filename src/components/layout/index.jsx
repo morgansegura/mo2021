@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
                     className='w-full border-b border-gray-200'
                     siteTitle={data.site.siteMetadata?.title || `Title`}
                 />
-                <main className='relative w-full max-w-6xl flex-1 p-8 mx-auto'>
+                <main className='mt-16 relative w-full max-w-6xl flex-1 p-8 mx-auto'>
                     {children}
                 </main>
 

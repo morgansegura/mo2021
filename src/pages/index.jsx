@@ -21,7 +21,7 @@ const IndexPage = () => (
         <div className='flex flex-col mb-8 lg:grid grid-cols-2'>
             <div className='flex flex-col justify-center bg-white pb-0 p-8'>
                 <h2 className='text-4xl font-bold max-w-sm'>
-                    <span className='text-6xl block lg:py-4'>I'm Mo.</span>
+                    <span className='text-6xl block lg:py-4'>Hi, I'm Mo.</span>
                     Let's build projects that make a difference.
                 </h2>
                 <p className='text-lg max-w-sm'>
