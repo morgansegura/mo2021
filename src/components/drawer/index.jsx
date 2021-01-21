@@ -16,6 +16,7 @@ const Drawer = ({ children, setToggleDrawer, toggleDrawer }) => {
                 onClick={() => setToggleDrawer(false)}
                 onMouseEnter={() => setShowIcon(true)}
                 onMouseLeave={() => setShowIcon(false)}
+                role='none'
                 className='absolute right-0 top-0 m-4 t-4 cursor-pointer flex items-center justify-center w-8 h-8 rounded-full bg-black text-yellow-200 hover:bg-yellow-200 hover:text-black transition-all ease-out duration-300'
             >
                 <RiEyeLine
