@@ -2,17 +2,9 @@ import React from 'react'
 
 import { FlipCard, Layout, SEO } from '../components'
 
-import {
-    RiPencilRulerLine,
-    RiLightbulbLine,
-    RiCodeBoxLine,
-    RiRocket2Line,
-    RiLayout5Line,
-    RiArrowRightCircleLine,
-} from 'react-icons/ri'
-import { MdDevicesOther } from 'react-icons/md'
-
 import TeamMeeting from '../assets/images/svg/team-meeting.svg'
+import { RiArrowRightCircleLine } from 'react-icons/ri'
+import { flipCardContent } from '../data'
 
 const IndexPage = () => (
     <Layout>
@@ -40,121 +32,35 @@ const IndexPage = () => (
             </h2>
         </div>
         <div className='flex mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            <FlipCard
-                frontCard={
-                    <div className='flex'>
-                        <div className='flex items-center justify-center bg-green-100 rounded-full h-20 w-20'>
-                            <RiLightbulbLine className='fill-current text-green-400 w-24 h-24' />
-                        </div>
-                        <div className='pl-4 pt-2'>
-                            <div className='relative'>
-                                <div className='flex items-center w-auto py-1'>
-                                    <h3 className={`mb-0`}>Idea</h3>
-                                    <RiArrowRightCircleLine className='ml-2 mt-1' />
+            {flipCardContent.map(item => (
+                <FlipCard
+                    key={item.id}
+                    frontCard={
+                        <div className='flex'>
+                            <div className='flex items-center justify-center bg-green-100 rounded-full h-20 w-20'>
+                                {item.icon}
+                            </div>
+                            <div className='pl-4 pt-2'>
+                                <div className='relative'>
+                                    <div className='flex items-center w-auto py-1'>
+                                        <h3 className='mb-0'>
+                                            {item.frontCardTitle}
+                                        </h3>
+                                        <RiArrowRightCircleLine className='ml-2 mt-1' />
+                                    </div>
                                 </div>
-                            </div>
-                            <p>A simple sketch goes a long way.</p>
-                        </div>
-                    </div>
-                }
-                backCard={
-                    <div className='flex'>
-                        <p>A simple sketch goes a long way.</p>
-                    </div>
-                }
-            />
-            {/*
-            <div className='bg-white flex items-center rounded-xl shadow border border-gray-100 p-4'>
-                <div className='flex items-center justify-center h-20 w-20 bg-green-100 rounded-full'>
-                    <RiLightbulbLine className='fill-current text-green-400 w-24 h-24' />
-                </div>
-                <div className='pl-4 pt-2'>
-                    <div className='relative cursor-pointer flex items-center w-auto py-1'>
-                        <h3 className='mb-0'>Idea</h3>
-                        <RiArrowRightCircleLine className='ml-2 mt-1' />
-                        <div className='absolute transform translate-x-1/3 translate-y-0 bottom-0 left-0 origin-top-left shadow-lg p-4 bg-yellow-100 rounded-tl-md rounded-tr-md rounded-br-md'>
-                            <div>
-                                <h4 className='mb-2'>A title for this</h4>
-                                <p className='text-sm'>
-                                    A bunch of stuff for a description
-                                </p>
+                                <p>{item.frontCardText}</p>
                             </div>
                         </div>
-                    </div>
-                    <p>A simple sketch goes a long way.</p>
-                </div>
-            </div>
-
-            <div className='bg-white flex items-center rounded-xl shadow border border-gray-100 p-4'>
-                <div className='flex items-center justify-center h-20 w-20 bg-green-100 rounded-full'>
-                    <RiPencilRulerLine className='fill-current text-green-400 w-24 h-24' />
-                </div>
-                <div className='pl-4 pt-2'>
-                    <div className='relative cursor-pointer flex items-center py-1'>
-                        <h3 className='mb-0'>Sketch</h3>
-                        <RiArrowRightCircleLine className='ml-2 mt-1' />
-                        <div className='absolute transform translate-x-1/3 -translate-y-1/4 bottom-0 left-0 origin-top-left shadow-lg p-4 bg-yellow-100 rounded-tl-md rounded-tr-md rounded-br-md'>
-                            <div>
-                                <h4 className='mb-2'>A title for this</h4>
-                                <p className='text-sm'>
-                                    A bunch of stuff for a description
-                                </p>
-                            </div>
+                    }
+                    backCard={
+                        <div className='flex'>
+                            <h3 className='mb-0'>{item.backCardTitle}</h3>
+                            <p>{item.backCardText}</p>
                         </div>
-                    </div>
-                    <p>A simple sketch goes a long way.</p>
-                </div>
-            </div>
-            <div className='bg-white flex items-center rounded-xl shadow border border-gray-100 p-4'>
-                <div className='flex items-center justify-center h-20 w-20 bg-green-100 rounded-full'>
-                    <RiLayout5Line className='fill-current text-green-400 w-24 h-24' />
-                </div>
-                <div className='pl-4 pt-2'>
-                    <div className='cursor-pointer flex items-center py-1'>
-                        <h3 className='mb-0'>Design</h3>
-                        <RiArrowRightCircleLine className='ml-2 mt-1' />
-                    </div>
-                    <p>A simple sketch goes a long way.</p>
-                </div>
-
-            </div>
-            <div className='bg-white flex items-center rounded-xl shadow border border-gray-100 p-4'>
-                <div className='flex items-center justify-center h-20 w-20 bg-green-100 rounded-full'>
-                    <RiCodeBoxLine className='fill-current text-green-400 w-24 h-24' />
-                </div>
-                <div className='pl-4 pt-2'>
-                    <div className='cursor-pointer flex items-center py-1'>
-                        <h3 className='mb-0'>Code</h3>
-                        <RiArrowRightCircleLine className='ml-2 mt-1' />
-                    </div>
-                    <p>A simple sketch goes a long way.</p>
-                </div>
-            </div>
-            <div className='bg-white flex items-center rounded-xl shadow border border-gray-100 p-4'>
-                <div className='flex items-center justify-center h-20 w-20 bg-green-100 rounded-full'>
-                    <MdDevicesOther className='fill-current text-green-400 w-24 h-24' />
-                </div>
-                <div className='pl-4 pt-2'>
-                    <div className='cursor-pointer flex items-center py-1'>
-                        <h3 className='mb-0'>Test</h3>
-                        <RiArrowRightCircleLine className='ml-2 mt-1' />
-                    </div>
-                    <p>A simple sketch goes a long way.</p>
-                </div>
-            </div>
-            <div className='bg-white flex items-center rounded-xl shadow border border-gray-100 p-4'>
-                <div className='flex items-center justify-center h-20 w-20 bg-green-100 rounded-full'>
-                    <RiRocket2Line className='fill-current text-green-400 w-24 h-24' />
-                </div>
-                <div className='pl-4 pt-2'>
-                    <div className='cursor-pointer flex items-center py-1'>
-                        <h3 className='mb-0'>Deploy</h3>
-                        <RiArrowRightCircleLine className='ml-2 mt-1' />
-                    </div>
-                    <p>A simple sketch goes a long way.</p>
-                </div>
-            </div>
-              */}
+                    }
+                />
+            ))}
         </div>
     </Layout>
 )
